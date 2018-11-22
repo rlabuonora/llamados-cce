@@ -5,5 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   validates :name, presence: true
-  validates :institucion, presence: true
+  
+  INSTITUCIONES = ["DINAPYME", "STPC", "INEFOP", "ANDE"]
+
+  validates :institucion, inclusion: {
+    in: INSTITUCIONES,
+    message: "Tiene que ser una institucion válida"
+  }
 end

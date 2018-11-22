@@ -26,4 +26,24 @@ describe User do
     @user.valid?
     expect(@user.errors[:institucion].any?).to eq(true)
   end
+  
+  
+  it "acepta institucion valida" do
+    validas = ["STPC", "DINAPYME", "INEFOP", "ANDE"]
+    validas.each do |valida|
+      @user.institucion = valida
+      @user.valid?
+      expect(@user.errors[:institucion].any?).to eq(false)
+    end
+  end
+  
+  it "rechaza institucion invalida" do
+    validas = ["DGI", "algo"]
+    validas.each do |valida|
+      @user.institucion = valida
+      @user.valid?
+      expect(@user.errors[:institucion].any?).to eq(true)
+    end
+  end
+  
 end

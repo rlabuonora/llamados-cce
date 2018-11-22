@@ -19,6 +19,8 @@ feature 'User edit', :devise do
     user = FactoryBot.create(:user)
     login_as(user, :scope => :user)
     visit edit_user_registration_path(user)
+    fill_in 'Nombre', with: 'New Name'
+    select 'DINAPYME', from: 'Institucion'
     fill_in 'Email', :with => 'newemail@example.com'
     fill_in 'Current password', :with => user.password
     click_button 'Update'
