@@ -3,4 +3,5 @@
 <p>Centro: <%= @call.centro if @call.centro %></p>
 
 <%= link_to "Editar Llamado", edit_call_path(@call) %>
+<%= link_to "Agregar Propuesta", new_call_proposal_path(@call) %>
 

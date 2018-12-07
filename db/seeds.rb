@@ -9,5 +9,11 @@ user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
 
-Call.create(nombre: "Vidrieras", centro: "Rivera")
-Call.create(nombre: "Validación de Ideas", centro: "Tacuarembó")
+c1 = Call.create(nombre: "Vidrieras", centro: "Rivera")
+c2 = Call.create(nombre: "Validación de Ideas", centro: "Tacuarembó")
+
+
+Proposal.create(proveedor: "Kolping", call: c1)
+Proposal.create(proveedor: "Thinkify", call: c1)
+
+Proposal.create(proveedor: "Gepián", call: c2)
