@@ -8,6 +8,17 @@ class CallsController < ApplicationController
       @call = Call.find(params[:id])
     end
     
+    def edit
+      @call = Call.find(params[:id])
+    end
+    
+    def update
+      @call = Call.find(params[:id])
+      call_params = params[:call].permit(:nombre, :centro)
+      @call.update(call_params)
+      redirect_to @call
+    end
+    
     def new
       @call = Call.new
     end

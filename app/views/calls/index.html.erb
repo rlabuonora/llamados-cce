@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h3>Llamados</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @calls.each do |call| %>
+            <tr>
+              <%= render call %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<h3>Llamado</h3>
+<p>Nombre: <%= @call.nombre if @call.nombre %></p>
+<p>Centro: <%= @call.centro if @call.centro %></p>
+
+<%= link_to "Editar Llamado", edit_call_path(@call) %>
+
