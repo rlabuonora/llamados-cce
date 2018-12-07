@@ -20,7 +20,5 @@ feature 'New proposal for a call', :devise do
     
     expect(current_path).to eq(call_proposals_path(call))
     
-
-    
   end
 end

@@ -3,9 +3,11 @@ include Warden::Test::Helpers
 feature 'Editar calls', :devise do
 
  
-  it "updates the movie and shows the movie's updated details" do
-    call = Call.create(centro: "Rivera", nombre: "Vidriera")
+  it "Actualiza el llamado si estoy logueado" do
     
+    call = Call.create(centro: "Rivera", nombre: "Vidriera")
+    user = FactoryBot.create(:user)
+    login_as(user, :scope => :user)
     visit call_url(call)
     
     click_link 'Editar Llamado'
