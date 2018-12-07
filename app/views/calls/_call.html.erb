@@ -1,2 +1,3 @@
-<td><%= call.nombre %></td>
+<td><%= link_to(call.nombre, call_path(call)) %></td>
 <td><%= call.centro %></td>
+<td><%= link_to(call.proposals.size, call_proposals_path(call)) %></td>
