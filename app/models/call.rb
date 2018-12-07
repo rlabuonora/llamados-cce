@@ -7,6 +7,6 @@ class Call < ApplicationRecord
 
   validates :centro, inclusion: {
    in: CENTROS,
-    message: "Tiene que ser un centro válid"
+    message: "Tiene que ser un centro válido"
   }
 end

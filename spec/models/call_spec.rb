@@ -30,7 +30,7 @@ RSpec.describe Call, type: :model do
   end
   
   it "has many proposals" do
-    call = Call.new(nombre: "Vidrieras", centro: "Montevideo")
+    call = Call.new(nombre: "Vidrieras", centro: "Rivera")
     prop1 = Proposal.create(call: call, proveedor: "Kolping")
     prop2 = Proposal.create(call: call, proveedor: "Gepián")
     call.proposals << prop1
