@@ -27,6 +27,19 @@ RSpec.describe Call, type: :model do
     call = Call.new(nombre: "Vidrieras", centro: "Montevideo")
     call.valid?
     expect(call.errors[:centro].any?).to eq(true) 
+  end
+  
+  it "has many proposals" do
+    call = Call.new(nombre: "Vidrieras", centro: "Montevideo")
+    prop1 = Proposal.create(call: call, proveedor: "Kolping")
+    prop2 = Proposal.create(call: call, proveedor: "Gepián")
+    call.proposals << prop1
+    call.proposals << prop2
+    expect(call.proposals.length).to eq(2) 
+  end
+  
+  
+  it "deletes associated proposals" do
       
   end
 end

@@ -1,6 +1,7 @@
 class Call < ApplicationRecord
     
   validates :nombre, presence: true
+  has_many :proposals
   
   CENTROS = ["Rivera", "Tacuarembó"]
 
