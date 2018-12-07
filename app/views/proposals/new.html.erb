@@ -1,0 +1,28 @@
+<h3> Crear nueva Propuesta</h3>
+<% if @propuesta.errors.any? %>
+<section id="errors">
+  <header>
+    <h2>
+      <%= @propuesta.class.name.humanize.downcase %> no se pudo salvar. 
+    </h2>
+    <h3>
+      Corrija <%= pluralize(@propuesta.errors.count, "error") %>:
+    </h3>
+  </header>
+  <ul>
+    <% @propuesta.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %>
+<%= form_for([@call, @propuesta]) do |f| %>
+  <p>
+    <%= f.label :proveedor %><br/>
+    <%= f.text_field :proveedor, autofocus: true %>
+  </p>
+  <p>
+    <%= f.submit "Salvar Propuesta" %> |
+    <%= link_to "Cancelar", call_path(@call) %>
+  </p>
+<% end %>

@@ -1,0 +1,19 @@
+
+
+
+<div class="container">
+  <div class="row">
+    <h3>Propuestas para <%= @call.nombre %> (<%= @call.centro %>)</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @props.each do |proposal| %>
+            <tr>
+              <%= render proposal %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
