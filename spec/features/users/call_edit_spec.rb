@@ -21,6 +21,8 @@ feature 'Editar calls', :devise do
     expect(current_path).to eq(call_path(call))
     
     expect(page).to have_text("Validación de Ideas")
+    
+    expect(page).to have_text('Llamado Actualizado')
   end
   
     

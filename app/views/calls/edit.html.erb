@@ -1,4 +1,21 @@
 <%= form_for(@call) do |f| %>
+<% if @call.errors.any? %>
+<section id="errors">
+  <header>
+    <h2>
+      <%= @call.class.name.humanize.downcase %> no se pudo salvar. 
+    </h2>
+    <h3>
+      Corrija <%= pluralize(@call.errors.count, "error") %>:
+    </h3>
+  </header>
+  <ul>
+    <% @call.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %>
   <p>
     <%= f.label :nombre %><br/>
     <%= f.text_field :nombre %>
