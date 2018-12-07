@@ -6,7 +6,7 @@ module Features
       fill_in 'Nombre', with: nombre
       select 'STPC', from: 'Institucion'
       fill_in 'Password', with: password
-      fill_in 'Password confirmation', :with => confirmation
+      fill_in 'Confirmar Password', :with => confirmation
       click_button 'Sign up'
     end
 
