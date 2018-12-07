@@ -1,9 +1,6 @@
-
-
-
 <div class="container">
   <div class="row">
-    <h3>Propuestas para <%= @call.nombre %> (<%= @call.centro %>)</h3>
+    <h3> <%= link_to(@call.nombre, call_path(@call)) %></h3>
     <div class="column">
       <table class="table">
         <tbody>
