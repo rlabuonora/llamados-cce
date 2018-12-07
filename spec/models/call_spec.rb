@@ -40,6 +40,11 @@ RSpec.describe Call, type: :model do
   
   
   it "deletes associated proposals" do
-      
+    call = Call.create(nombre: "Vidrieras", centro: "Rivera")
+    prop1 = Proposal.create(call: call, proveedor: "Kolping")
+    
+    expect {
+      call.destroy
+    }.to change(Proposal, :count).by(-1)
   end
 end

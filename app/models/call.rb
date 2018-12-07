@@ -1,7 +1,7 @@
 class Call < ApplicationRecord
     
   validates :nombre, presence: true
-  has_many :proposals
+  has_many :proposals, dependent: :destroy
   
   CENTROS = ["Rivera", "Tacuarembó"]
 
