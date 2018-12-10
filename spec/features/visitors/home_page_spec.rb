@@ -11,6 +11,7 @@ feature 'Home page' do
   scenario 'visit the home page' do
     visit root_path
     expect(page).to have_content 'Inicio'
+    expect(page).not_to have_link 'Crear Usuario'
   end
 
 end
