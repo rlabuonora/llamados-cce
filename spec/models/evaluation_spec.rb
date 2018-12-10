@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Evaluation, type: :model do
     
-  before(:each) { @user = User.new(email: 'user@example.com',
-                                   name: 'Example User',
-                                   institucion: 'STPC') 
-      
-    @call = Call.new(nombre: "Vidrieras", centro: "Montevideo")
-    @prop = Proposal.create(call: @call, proveedor: "Kolping")
+  before(:each) { 
+    
+    @user = FactoryBot.build(:user)
+    @call = FactoryBot.build(:call)
+    @prop = FactoryBot.build(:proposal)
       
   }
     
@@ -32,5 +31,14 @@ RSpec.describe Evaluation, type: :model do
     eval = Evaluation.new(proposal: @prop)
     eval.valid?
     expect(eval.errors[:user].any?).to eq(true)
+  end
+  
+  it "belongs to a user" do
+    eval = FactoryBot.create(:evaluation)
+    expect(eval.user.name).to eq("Test User")
+  end
+  
+  it "has a response" do
+    pending "not implemented"
   end
 end
