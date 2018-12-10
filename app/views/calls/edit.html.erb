@@ -24,6 +24,14 @@
     <%= f.label :centro %><br/>
      <%= f.select :centro, Call::CENTROS, class: 'form-control' %>
   </p>
+   <p>
+    <%= f.label :modalidad %><br/>
+    <%= f.select :modalidad, Call::MODALIDADES, class: 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :publico %><br/>
+    <%= f.select :publico, Call::PUBLICOS, class: 'form-control' %>
+  </p>
   <p>
     <%= f.submit "Actualizar Llamado" %>
   </p>

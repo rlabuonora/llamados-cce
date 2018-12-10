@@ -4,33 +4,40 @@ RSpec.describe Call, type: :model do
   
   
   it "is valid with all fields" do
-      
-    call = Call.new(nombre: "Vidrieras", centro: "Rivera")
+    call = Call.new(nombre: "Vidrieras", centro: "Rivera", publico: "Empresas", modalidad: "Capacitación")
     expect(call.valid?).to eq(true)
-     
  end
   
+  it "is invalid with no publico" do
+     skip "not implemented"
+     call = Call.new(nombre: "Vidrieras", centro: "Rivera", publico: "", modalidad: "Capacitación")
+     call.valid?
+     expect(call.errors[:publico].any?).to eq(true)
+     call.valid?
+     call.publico = "Gente"
+     expect(call.errors[:publico].any?).to eq(true)
+  end
   
   it "is invalid with no nombre" do
-     call = Call.new(nombre: "", centro: "Rivera")
+     call = Call.new(nombre: "", centro: "Rivera", publico: "Empresas", modalidad: "Capacitación")
      call.valid?
      expect(call.errors[:nombre].any?).to eq(true)
   end
   
   it "is invalid with no centro" do
-     call = Call.new(nombre: "Vidrieras", centro: "")
+     call = Call.new(nombre: "Vidrieras", centro: "", publico: "Empresas", modalidad: "Capacitación")
      call.valid?
      expect(call.errors[:centro].any?).to eq(true)
   end
   
   it "is invalid with wrong centro" do
-    call = Call.new(nombre: "Vidrieras", centro: "Montevideo")
+    call = Call.new(nombre: "Vidrieras", centro: "Montevideo", publico: "Empresas", modalidad: "Capacitación")
     call.valid?
     expect(call.errors[:centro].any?).to eq(true) 
   end
   
   it "has many proposals" do
-    call = Call.new(nombre: "Vidrieras", centro: "Rivera")
+    call = Call.new(nombre: "Vidrieras", centro: "Rivera", publico: "Empresas", modalidad: "Capacitación")
     prop1 = Proposal.create(call: call, proveedor: "Kolping")
     prop2 = Proposal.create(call: call, proveedor: "Gepián")
     call.proposals << prop1
@@ -40,7 +47,7 @@ RSpec.describe Call, type: :model do
   
   
   it "deletes associated proposals" do
-    call = Call.create(nombre: "Vidrieras", centro: "Rivera")
+    call = Call.create(nombre: "Vidrieras", centro: "Rivera", publico: "Empresas", modalidad: "Capacitación")
     prop1 = Proposal.create(call: call, proveedor: "Kolping")
     
     expect {

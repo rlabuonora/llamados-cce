@@ -10,7 +10,10 @@ feature 'Show calls', :devise do
     expect(current_path).to eq(new_call_path)
     
     fill_in "Nombre", with: "Validación de Ideas"
+
     select "Rivera", :from => "Centro"
+    select "Empresas", :from => "Publico"
+    select "Capacitación", :from => "Modalidad"
     
     click_button "Crear Llamado"
     expect(current_path).to eq(call_path(Call.last))

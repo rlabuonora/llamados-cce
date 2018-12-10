@@ -7,7 +7,7 @@ feature 'Evaluate propuesta', :devise do
     user = FactoryBot.create(:user)
     login_as(user, :scope => :user)
     
-    c = Call.create(nombre: "Vidrieras", centro: "Rivera")
+    c = Call.create(nombre: "Vidrieras", centro: "Rivera", publico: "Empresas", modalidad: "Capacitación")
 
 
     Proposal.create(proveedor: "Kolping", call: c)

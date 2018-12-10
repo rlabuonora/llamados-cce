@@ -5,7 +5,7 @@ feature 'Editar calls', :devise do
  
   it "Actualiza el llamado si estoy logueado" do
     
-    call = Call.create(centro: "Rivera", nombre: "Vidriera")
+    call = Call.create(centro: "Rivera", nombre: "Vidriera", publico: "Empresas", modalidad: "Capacitación")
     user = FactoryBot.create(:user)
     login_as(user, :scope => :user)
     visit call_url(call)

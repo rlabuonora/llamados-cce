@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_07_160039) do
+ActiveRecord::Schema.define(version: 2018_12_10_163359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2018_12_07_160039) do
     t.string "centro"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "publico"
+    t.string "modalidad"
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.bigint "proposal_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proposal_id"], name: "index_evaluations_on_proposal_id"
+    t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -44,5 +55,7 @@ ActiveRecord::Schema.define(version: 2018_12_07_160039) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "evaluations", "proposals"
+  add_foreign_key "evaluations", "users"
   add_foreign_key "proposals", "calls"
 end

@@ -4,7 +4,7 @@ include Warden::Test::Helpers
 feature 'New proposal for a call', :devise do
     
   scenario 'list' do
-    call = Call.create(nombre: "Vidrieras", centro: "Tacuarembó")
+    call = Call.create(nombre: "Vidrieras", centro: "Tacuarembó", publico: "Empresas", modalidad: "Capacitación")
     
     
     user = FactoryBot.create(:user)
