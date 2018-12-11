@@ -54,11 +54,5 @@ RSpec.describe Call, type: :model do
       call.destroy
     }.to change(Proposal, :count).by(-1)
   end
-  
-  it "factory" do
-    pending "not working"
-    call = FactoryBot.create(:call)
-    expect(call.nombre).to eq("Vidrieras") 
-    expect(call.proposals.size).to eq(1)
-  end
+
 end

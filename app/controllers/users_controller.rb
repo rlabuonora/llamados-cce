@@ -13,9 +13,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    
     fail
-    
   end
 
 end
