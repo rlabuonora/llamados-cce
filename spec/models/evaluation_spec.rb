@@ -34,11 +34,28 @@ RSpec.describe Evaluation, type: :model do
   end
   
   it "belongs to a user" do
+    skip
     eval = FactoryBot.create(:evaluation)
     expect(eval.user.name).to eq("Test User")
   end
   
+  it "it is asociated with a evaluation" do
+    skip
+    response = FactoryBot.create(:asistencia_empresas_response)
+    expect(response.evaluation.user.name).to eq("Test User")
+  end
+  
   it "has a response" do
-    pending "not implemented"
+    #eval = FactoryBot.build_stubbed(:evaluation)
+    #puts eval.user.email
+    #response = FactoryBot.build(:asistencia_empresas_response)
+  end
+  
+  it "belongs to evaluatable" do
+    eval = Evaluation.new(user: @user, proposal: @prop)
+    response = FactoryBot.build(:emprendedores_capacitaciones_response)
+    expect(response.propuesta).to eq(5)
+    response.evaluation = eval
+    expect(response.evaluation.user).to eq(@user)
   end
 end

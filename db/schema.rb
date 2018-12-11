@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_10_163359) do
+ActiveRecord::Schema.define(version: 2018_12_11_130949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "asistencia_empresas_responses", force: :cascade do |t|
+    t.decimal "exp_pob"
+    t.decimal "problematica"
+    t.decimal "formacion"
+    t.decimal "experiencia"
+    t.decimal "claridad"
+    t.decimal "viabilidad"
+    t.decimal "formativo"
+    t.bigint "evaluation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluation_id"], name: "index_asistencia_empresas_responses_on_evaluation_id"
+  end
 
   create_table "calls", force: :cascade do |t|
     t.string "nombre"
@@ -24,11 +38,29 @@ ActiveRecord::Schema.define(version: 2018_12_10_163359) do
     t.string "modalidad"
   end
 
+  create_table "emprendedores_capacitaciones_responses", force: :cascade do |t|
+    t.decimal "propuesta"
+    t.decimal "antecedentes"
+    t.decimal "conocimiento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "empresas_capacitaciones_responses", force: :cascade do |t|
+    t.decimal "exp_pob"
+    t.decimal "problematica"
+    t.decimal "formacion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "evaluations", force: :cascade do |t|
     t.bigint "proposal_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "evaluatable_id"
+    t.string "evaluatable_type"
     t.index ["proposal_id"], name: "index_evaluations_on_proposal_id"
     t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
@@ -55,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_163359) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "asistencia_empresas_responses", "evaluations"
   add_foreign_key "evaluations", "proposals"
   add_foreign_key "evaluations", "users"
   add_foreign_key "proposals", "calls"
