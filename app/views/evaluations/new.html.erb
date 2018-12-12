@@ -1,0 +1,38 @@
+<div class="col-lg-4">
+<h3> Crear nueva Propuesta</h3>
+<% if @evaluation.errors.any? %>
+<section id="errors">
+  <header>
+    <h2>
+      <%= @evaluation.class.name.humanize.downcase %> no se pudo salvar. 
+    </h2>
+    <h3>
+      Corrija <%= pluralize(@evaluation.errors.count, "error") %>:
+    </h3>
+  </header>
+  <ul>
+    <% @evaluation.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %>
+<%= form_for([@propuesta, @evaluation]) do |f| %>
+  <p>
+    <%= f.label :propuesta, "Adecuación de la propuesta metodológica" %><br/>
+    <%= f.text_field :propuesta, class: 'form-control', autofocus: true %>
+  </p>
+  <p>
+    <%= f.label :antecedentes, "Antecedentes y experiencia de la institución en actividades formativas para emprendedores y Mipymes" %><br/>
+    <%= f.text_field :antecedentes, class: 'form-control', autofocus: true %>
+  </p>
+    <p>
+    <%= f.label :conocimiento, "Conocimiento de la población objetivo" %><br/>
+    <%= f.text_field :conocimiento, class: 'form-control', autofocus: true %>
+  </p>
+  <p>
+    <%= f.submit "Guardar Evaluacion", class: 'btn btn-primary' %> 
+    <%= link_to "Cancelar", proposal_path(@propuesta), class: 'btn btn-primary' %>
+  </p>
+<% end %>
+</div>

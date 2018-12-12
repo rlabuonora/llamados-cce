@@ -58,4 +58,22 @@ RSpec.describe Evaluation, type: :model do
     response.evaluation = eval
     expect(response.evaluation.user).to eq(@user)
   end
+  
+  it "has a response" do
+    eval = Evaluation.new(user: @user, proposal: @prop)
+    response = FactoryBot.build(:emprendedores_capacitaciones_response)
+    eval.evaluatable = response 
+    expect(eval.evaluatable.propuesta).to eq(5)
+    eval.evaluatable.propuesta = 6
+    expect(eval.evaluatable.propuesta).to eq(6)
+  end
+  
+  it "overrides method missing" do
+    eval = Evaluation.new(user: @user, proposal: @prop)
+    response = FactoryBot.build(:emprendedores_capacitaciones_response)
+    eval.evaluatable = response 
+    expect(eval.antecedentes).to eq(5)
+    eval.antecedentes = 6
+    expect(eval.antecedentes).to eq(6)
+  end
 end
