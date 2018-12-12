@@ -10,8 +10,7 @@ feature 'Home page' do
   #   Then I see "Welcome"
   scenario 'visit the home page' do
     visit root_path
-    expect(page).to have_content 'Inicio'
-    expect(page).not_to have_link 'Crear Usuario'
+    expect(page).to have_content 'Iniciar Sesión'
   end
 
 end
