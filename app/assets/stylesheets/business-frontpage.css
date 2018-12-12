@@ -16,7 +16,15 @@
 }
 
 /* Customize the text color and shadow color and to optimize text legibility. */
+main {
+    
+    margin-top: 150px;
+}
 
+ul.nav {
+    
+    margin-top: 20px;
+}
 .tagline {
     text-shadow: 0 0 10px #000;
     color: #fff;
