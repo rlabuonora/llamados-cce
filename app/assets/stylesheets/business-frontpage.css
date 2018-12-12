@@ -15,6 +15,11 @@
     -o-background-size: cover;
 }
 
+
+body {
+  #font-family: 'Crete Round', serif;
+}
+
 /* Customize the text color and shadow color and to optimize text legibility. */
 main {
     
@@ -24,6 +29,7 @@ main {
 ul.nav {
     
     margin-top: 20px;
+    text-transform: uppercase;
 }
 .tagline {
     text-shadow: 0 0 10px #000;

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h3> <%= link_to(@call.nombre, call_path(@call)) %></h3>
+    <h3> <%= @call.nombre %> </h3>
     <div class="column">
       <table class="table">
         <tbody>
@@ -11,6 +11,9 @@
           <% end %>
         </tbody>
       </table>
+      
     </div>
+    
   </div>
+  <%= link_to("Volver", call_path(@call), class: 'btn btn-primary') %>
 </div>

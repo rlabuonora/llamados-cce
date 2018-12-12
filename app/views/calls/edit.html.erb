@@ -1,3 +1,4 @@
+<div class="col-lg-4">
 <%= form_for(@call) do |f| %>
 <% if @call.errors.any? %>
 <section id="errors">
@@ -18,21 +19,23 @@
 <% end %>
   <p>
     <%= f.label :nombre %><br/>
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, class: 'form-control' %>
   </p>
     <p>
     <%= f.label :centro %><br/>
-     <%= f.select :centro, Call::CENTROS, class: 'form-control' %>
+     <%= f.select :centro, Call::CENTROS, {}, class: 'form-control' %>
   </p>
    <p>
     <%= f.label :modalidad %><br/>
-    <%= f.select :modalidad, Call::MODALIDADES, class: 'form-control' %>
+    <%= f.select :modalidad, Call::MODALIDADES, {}, class: 'form-control' %>
   </p>
   <p>
     <%= f.label :publico %><br/>
-    <%= f.select :publico, Call::PUBLICOS, class: 'form-control' %>
+    <%= f.select :publico, Call::PUBLICOS, {}, class: 'form-control' %>
   </p>
   <p>
-    <%= f.submit "Actualizar Llamado" %>
+    <%= f.submit "Actualizar Llamado", class: 'btn btn-primary' %>
+    <%= link_to "Cancelar", @call, class: 'btn btn-primary' %>
   </p>
 <% end %>
+</div>
