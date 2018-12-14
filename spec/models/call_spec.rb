@@ -54,5 +54,31 @@ RSpec.describe Call, type: :model do
       call.destroy
     }.to change(Proposal, :count).by(-1)
   end
+  
+  it "has many evaluations through propuestas" do
+    call = FactoryBot.create(:call)
+    prop = FactoryBot.create(:proposal)
+    response_1 = attributes_for(:empresas_capacitaciones_response)
+   
+    
+    user_1 = User.create(name: "Usuario 1", email: "changme@change.com", password: "changeme", institucion: "SNTPC")
+    user_2 = User.create(name: "Usuario 2", email: "changme@change.com", password: "changeme", institucion: "INEFOP")
+    # Esta evaluation es para otro!
+    evaluation_1 = Evaluation.create(proposal: prop, user: user_1)
+    evaluation_2 = Evaluation.create(proposal: prop, user: user_2)
+    
+
+    # Tienen la misma propuesta
+    expect(evaluation_1.proposal).to eq(evaluation_2.proposal)
+    
+    # Tienen el mismo call
+    expect(evaluation_1.proposal.call).to eq(evaluation_2.proposal.call)
+    
+    # Tienen distinto usuario
+    expect(evaluation_1.user).to eq(user_1)
+    expect(evaluation_2.user).to eq(user_2)
+    
+    expect(call.evaluations.size).to eq(2)
+  end
 
 end
