@@ -1,10 +1,23 @@
-<h3>Llamado</h3>
-<p>Nombre: <%= @call.nombre if @call.nombre %></p>
-<p>Centro: <%= @call.centro if @call.centro %></p>
-<p>Publico: <%= @call.publico if @call.publico %></p>
-<p>Modalidad: <%= @call.modalidad if @call.modalidad %></p>
+<div class="container">
+    
+    <div class="row">
+      <h3>Llamado</h3>
+      <p>Nombre: <%= @call.nombre if @call.nombre %></p>
+      <p>Centro: <%= @call.centro if @call.centro %></p>
+      <p>Publico: <%= @call.publico if @call.publico %></p>
+      <p>Modalidad: <%= @call.modalidad if @call.modalidad %></p>
 
-<%= link_to "Editar Llamado", edit_call_path(@call), class: 'btn btn-primary' %>
-<%= link_to "Agregar Propuesta", new_call_proposal_path(@call), class: 'btn btn-primary' %>
-<%= link_to "Ver Propuestas", call_proposals_path(@call), class: 'btn btn-primary' %>
+      <%= link_to "Editar Llamado", edit_call_path(@call), class: 'btn btn-primary' %>
+      <%= link_to "Agregar Propuesta", new_call_proposal_path(@call), class: 'btn btn-primary' %>
+      <%= link_to "Ver Propuestas", call_proposals_path(@call), class: 'btn btn-primary' %> 
+        
+    </div>
+    <div class="row">
+        
+        
+    </div>
+    
+</div>
+
+
 
