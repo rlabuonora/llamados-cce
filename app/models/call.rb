@@ -2,6 +2,7 @@ class Call < ApplicationRecord
     
   
   has_many :proposals, dependent: :destroy
+  has_many :evaluations, through: :proposals
   
   CENTROS = ["Rivera", "Tacuarembó"]
   PUBLICOS = ["Empresas", "Emprendedores"]
