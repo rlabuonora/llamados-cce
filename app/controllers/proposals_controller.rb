@@ -24,4 +24,16 @@ class ProposalsController < ApplicationController
           render :new
       end
     end
+    
+    def destroy
+      @call = Call.find(params[:call_id])
+      @propuesta = Proposal.find(params[:id])
+      if @propuesta.destroy
+        @props = @call.proposals
+          redirect_to call_proposals_path(@call),
+                  notice: "Propuesta Eliminada"
+      else
+        render :index
+      end
+    end
 end

@@ -25,4 +25,17 @@ RSpec.describe Proposal, type: :model do
     #expect(evaluation.call.publico).to eq("Empresas")
     #proposal.evaluations << FactoryBot.build(:evaluation)
   end
+  
+  it "can be destroyed" do
+    proposal = FactoryBot.create(:proposal)
+    response = FactoryBot.build(:empresas_capacitaciones_response)
+    evaluation = FactoryBot.create(:evaluation, evaluatable: response)
+    
+    proposal.evaluations << evaluation
+    expect(proposal.evaluations.size).to eq(1)
+    
+    expect{
+     proposal.destroy
+    }.to change(Proposal, :count).by(-1)
+  end
 end
