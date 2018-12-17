@@ -20,11 +20,8 @@
     <%= f.select :publico, Call::PUBLICOS, {}, class: 'form-control', readonly: true %>
   </p>
   <p>
-
-
-
-
   <% end %>
+  <div>
   <div class="row">
     <%= link_to "Editar Llamado", edit_call_path(@call), class: 'btn btn-primary' %> 
     <%= link_to "Agregar Propuesta", new_call_proposal_path(@call), class: 'btn btn-primary' %> 
@@ -33,44 +30,11 @@
   <div class="row">
     <h3>Evaluaciones</h3>
     <div class="column">
-    <table class="table">
-        <tr>
-          <th>Proveedor</th>
-          <th>Usuario</th>
-          <th>Institucion</th>
-          <th>Propuesta</th>
-          <th>Antecedentes</th>
-          <th>Conocimiento</th>
-        </tr>
-        <tbody>
-          <% @call.evaluations.each do |evaluation| %>
-          <tr>
-            <td>
-              <%= evaluation.proposal.proveedor %>
-            </td>
-            <td>
-              <%= evaluation.user.name if evaluation.user %>
-            </td>
-             <td>
-              <%= evaluation.user.institucion if evaluation.user %>
-            </td>
-            <td>
-              <%= evaluation.evaluatable.propuesta   %>
-            </td>
-             <td>
-              <%= evaluation.evaluatable.antecedentes  %>
-            </td>
-            <td>
-              <%= evaluation.evaluatable.conocimiento  %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-        </div>
-      </div>
-      </div>
+    <%= render :partial => 'evaluations', :locals => {:call => @call } %>
     </div>
+  </div>
+  </div>
+</div>
 
 </div>
 
