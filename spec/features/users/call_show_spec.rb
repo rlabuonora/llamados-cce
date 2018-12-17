@@ -9,7 +9,7 @@ feature 'Show call', :devise do
     
     
     prop = FactoryBot.create(:proposal)
-    response_1 = FactoryBot.build(:empresas_capacitaciones_response)
+    response_1 = FactoryBot.build(:emprendedores_capacitaciones_response)
     
     user_1 = User.create(name: "Usuario 1", email: "changme@change.com", password: "changeme", institucion: "SNTPC")
     user_2 = User.create(name: "Usuario 2", email: "changme@change.com", password: "changeme", institucion: "INEFOP")
@@ -19,8 +19,8 @@ feature 'Show call', :devise do
     
     call = prop.call
     visit call_path(call)
-    expect(page).to have_text call.nombre
-    expect(page).to have_text prop.proveedor
+    expect(page).to have_xpath("//input[@value='#{call.nombre}']")
+    expect(page).to have_text(prop.proveedor)
  end
     
 end

@@ -1,0 +1,7 @@
+<% if call.publico == "Empresas" && call.modalidad == "Capacitación" %>
+  <%= render :partial => 'empresas_capacitacion', :locals => {:call => @call } %>
+<% end %>
+
+<% if call.publico == "Emprendedores" && call.modalidad == "Capacitación" %>
+  <%= render :partial => 'emprendedores_capacitacion', :locals => {:call => @call } %>
+<% end %>

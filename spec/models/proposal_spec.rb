@@ -12,7 +12,7 @@ RSpec.describe Proposal, type: :model do
     proposal = FactoryBot.create(:proposal)
     expect(proposal.proveedor).to eq("Kolping")
     expect(proposal.call.nombre).to eq("Vidrieras")
-    expect(proposal.call.publico).to eq("Empresas")
+    expect(proposal.call.publico).to eq("Emprendedores")
     expect(proposal.call.modalidad).to eq("Capacitación")
   end
   

@@ -81,7 +81,7 @@ RSpec.describe Call, type: :model do
 
     c = evaluation_1.proposal.call
     
-    expect(c.publico).to eq("Empresas")
+    expect(c.publico).to eq("Emprendedores")
     expect(c.proposals.size).to eq(1)
     expect(c.evaluations.size).to eq(2)
     

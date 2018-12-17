@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :call do
     nombre { "Vidrieras" }
     centro { "Rivera" }
-    publico { "Empresas" }
+    publico { "Emprendedores" }
     modalidad { "Capacitación" }
   end
 end
