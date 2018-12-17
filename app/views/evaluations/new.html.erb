@@ -32,7 +32,7 @@
   </p>
   <p>
     <%= f.submit "Guardar Evaluacion", class: 'btn btn-primary' %> 
-    <%= link_to "Cancelar", proposal_path(@propuesta), class: 'btn btn-primary' %>
+    <%= link_to "Cancelar", call_path(@propuesta.call), class: 'btn btn-primary' %>
   </p>
 <% end %>
 </div>
