@@ -21,6 +21,9 @@
           <th>Proveedor</th>
           <th>Usuario</th>
           <th>Institucion</th>
+          <th>Propuesta</th>
+          <th>Antecedentes</th>
+          <th>Conocimiento</th>
         </tr>
         <tbody>
           <% @call.evaluations.each do |evaluation| %>
@@ -33,6 +36,15 @@
             </td>
              <td>
               <%= evaluation.user.institucion if evaluation.user %>
+            </td>
+            <td>
+              <%= evaluation.evaluatable.propuesta  %>
+            </td>
+             <td>
+              <%= evaluation.evaluatable.antecedentes  %>
+            </td>
+            <td>
+              <%= evaluation.evaluatable.conocimiento  %>
             </td>
           </tr>
           <% end %>

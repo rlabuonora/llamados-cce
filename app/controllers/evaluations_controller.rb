@@ -15,7 +15,7 @@ class EvaluationsController < ApplicationController
       evaluation_params = params.require(:evaluation).permit(:propuesta, :antecedentes, :conocimiento)
       @evaluation.evaluatable = EmprendedoresCapacitacionesResponse.new(evaluation_params)
       
-      if @evaluation.save
+      if @evaluation.save & @evaluation.evaluatable.save
           redirect_to @propuesta.call, notice: "Evaluación Guardada"
       else 
           render :new
