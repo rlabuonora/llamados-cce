@@ -45,6 +45,50 @@ RSpec.describe Evaluation, type: :model do
     expect(response.evaluation.user.name).to eq("Test User")
   end
   
+  it "binds to the associated call" do
+    call_attr = attributes_for(:call)
+    call = Call.new(call_attr)
+    
+    prop = Proposal.new(call: call, proveedor: "Kolping")
+    
+    user = FactoryBot.create(:user)
+    
+    responses = FactoryBot.build(:empresas_capacitaciones_response)
+    
+    evaluation1 = Evaluation.new(user: user, proposal: prop, evaluatable: responses)
+    
+    expect {
+      evaluation1.save
+    }.to change(Evaluation, :count).by(1)
+    
+  end
+  
+  it "binds to the associated call" do
+    call_attr = attributes_for(:call)
+    call = Call.new(call_attr)
+    
+    prop = Proposal.new(call: call, proveedor: "Kolping")
+    
+    user = FactoryBot.create(:user)
+    
+    responses = FactoryBot.build(:empresas_capacitaciones_response)
+    
+    evaluation1 = Evaluation.new(user: user, proposal: prop, evaluatable: responses)
+    
+    
+    expect(call.evaluations.size).to eq(0)
+    evaluation1.save
+    expect(call.evaluations.size).to eq(1)
+    
+    expect(call.evaluations.first.evaluatable.exp_pob).to eq(6)
+    expect(call.proposals.first.proveedor).to eq("Kolping")
+    
+#    expect {
+#      evaluation1.save
+#    }.to change(Evaluation, :count).by(1)
+    
+  end
+  
   it "has a response" do
     #eval = FactoryBot.build_stubbed(:evaluation)
     #puts eval.user.email

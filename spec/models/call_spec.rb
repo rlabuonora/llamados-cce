@@ -55,6 +55,8 @@ RSpec.describe Call, type: :model do
     }.to change(Proposal, :count).by(-1)
   end
   
+
+  
   it "has many evaluations through propuestas" do
     prop = FactoryBot.create(:proposal)
     response_1 = FactoryBot.build(:empresas_capacitaciones_response)

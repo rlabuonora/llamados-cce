@@ -12,11 +12,38 @@
       <%= link_to "Ver Propuestas", call_proposals_path(@call), class: 'btn btn-primary' %> 
         
     </div>
-    <div class="row">
+    <div class="container">
+      <div class="row">
+        <h3>Propuestas</h3>
+        <div class="column">
+        <table class="table">
+        <tr>
+          <th>Proveedor</th>
+          <th>Usuario</th>
+          <th>Institucion</th>
+        </tr>
+        <tbody>
+          <% @call.evaluations.each do |evaluation| %>
+          <tr>
+            <td>
+              <%= evaluation.proposal.proveedor %>
+            </td>
+            <td>
+              <%= evaluation.user.name if evaluation.user %>
+            </td>
+             <td>
+              <%= evaluation.user.institucion if evaluation.user %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+        </div>
         
-        
+      </div>
+      
     </div>
-    
+
 </div>
 
 
