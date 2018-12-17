@@ -1,7 +1,7 @@
 class Evaluation < ApplicationRecord
   belongs_to :proposal
   belongs_to :user
-  belongs_to :evaluatable, polymorphic: true  
+  belongs_to :evaluatable, polymorphic: true, dependent: :destroy
   validates :proposal, presence: true
   validates :user, presence: true
 

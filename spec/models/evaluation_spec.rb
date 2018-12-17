@@ -89,8 +89,12 @@ RSpec.describe Evaluation, type: :model do
     
   end
   
-  it "has a response" do
-    #eval = FactoryBot.build_stubbed(:evaluation)
+  it "destroys associated evaluatables" do
+    response = FactoryBot.build(:emprendedores_capacitaciones_response)
+    evaluation = Evaluation.create(user: @user, proposal: @prop, evaluatable: response)
+    expect {
+      evaluation.destroy
+    }.to change(EmprendedoresCapacitacionesResponse, :count).by(-1)
     #puts eval.user.email
     #response = FactoryBot.build(:asistencia_empresas_response)
   end

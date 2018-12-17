@@ -17,7 +17,7 @@ feature 'Show calls', :devise do
     
     click_button "Crear Llamado"
     expect(current_path).to eq(call_path(Call.last))
-    expect(page).to have_text "Validación de Ideas"
+    expect(page).to have_xpath("//input[@value='Validación de Ideas']")
  end
     
 end

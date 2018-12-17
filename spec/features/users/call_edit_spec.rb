@@ -21,9 +21,7 @@ feature 'Editar calls', :devise do
     click_button "Actualizar Llamado"
     
     expect(current_path).to eq(call_path(call))
-    
-    expect(page).to have_text("Validación de Ideas")
-    
+    expect(page).to have_xpath("//input[@value='Validación de Ideas']")
     expect(page).to have_text('Llamado Actualizado')
   end
   
