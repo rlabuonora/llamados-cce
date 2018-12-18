@@ -1,0 +1,18 @@
+<%= form_for([propuesta, evaluation]) do |f| %>
+  <p>
+    <%= f.label :propuesta, "Adecuación de la propuesta metodológica" %><br/>
+    <%= f.text_field :propuesta, class: 'form-control', autofocus: true %>
+  </p>
+  <p>
+    <%= f.label :antecedentes, "Antecedentes y experiencia de la institución en actividades formativas para emprendedores y Mipymes" %><br/>
+    <%= f.text_field :antecedentes, class: 'form-control', autofocus: true %>
+  </p>
+    <p>
+    <%= f.label :conocimiento, "Conocimiento de la población objetivo" %><br/>
+    <%= f.text_field :conocimiento, class: 'form-control', autofocus: true %>
+  </p>
+  <p>
+    <%= f.submit "Guardar Evaluación", class: 'btn btn-primary' %> 
+    <%= link_to "Cancelar", call_path(propuesta.call), class: 'btn btn-primary' %>
+  </p>
+<% end %>

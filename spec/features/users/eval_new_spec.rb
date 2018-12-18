@@ -10,20 +10,27 @@ feature 'Evaluate propuesta', :devise do
     c = Call.create(nombre: "Vidrieras", centro: "Rivera", publico: "Emprendedores", modalidad: "Capacitación")
 
 
-    Proposal.create(proveedor: "Kolping", call: c)
-    Proposal.create(proveedor: "Thinkify", call: c)
+    p = Proposal.create(proveedor: "Otro Proveedor", call: c)
+    visit(call_proposals_path(c))
+
+    expect(page).to have_text(c.nombre)
+    expect(page).to have_text(p.proveedor)
     
-    visit(call_path(c))
-    click_link "Ver Propuestas"
-    click_link "Evaluar", match: :first
+    click_link "Evaluar"
+    
+    expect(page).to have_text("Evaluar Propuesta")
     
     fill_in "Adecuación de la propuesta metodológica", with: 10
     fill_in "Antecedentes y experiencia de la institución en actividades formativas para emprendedores y Mipymes", with: 10
     fill_in "Conocimiento de la población objetivo", with: 10
     
-    click_button "Guardar Evaluacion"
+    click_button "Guardar Evaluación"
     
     expect(current_path).to eq(call_path(c))
+    expect(page).to have_text(p.proveedor)
+    expect(page).to have_text(user.name)
+    expect(page).to have_text("10")
+    
     
  end
  
@@ -32,23 +39,29 @@ feature 'Evaluate propuesta', :devise do
     user = FactoryBot.create(:user)
     login_as(user, :scope => :user)
     
-    c = Call.create(nombre: "Vidrieras", centro: "Rivera", publico: "Empresas ", modalidad: "Capacitación")
+    c = Call.create(nombre: "Vidrieras", centro: "Rivera", publico: "Empresas", modalidad: "Capacitación")
 
 
-    Proposal.create(proveedor: "Kolping", call: c)
-    Proposal.create(proveedor: "Thinkify", call: c)
+    p = Proposal.create(proveedor: "Proveedor", call: c)
+
+    visit(call_proposals_path(c))
+
+    expect(page).to have_text(c.nombre)
+    expect(page).to have_text(p.proveedor)
     
-    visit(call_path(c))
-    click_link "Ver Propuestas"
-    click_link "Evaluar", match: :first
-    
-    fill_in "Formacion (Titulo de Grado)", with: 10
+    click_link "Evaluar"
+
+    expect(page).to have_text("Evaluar Propuesta")
+    fill_in "Formación (Título de Grado)", with: 10
     fill_in "Experiencia de la entidad de capacitación de cara a proveer servicios educativos basados en nuevas tecnologías", with: 10
-    fill_in "Estudios complementarios ", with: 10
+    fill_in "Estudios complementarios", with: 10
     
-    click_button "Guardar Evaluacion"
+    click_button "Guardar Evaluación"
     
     expect(current_path).to eq(call_path(c))
+    expect(page).to have_text(p.proveedor)
+    expect(page).to have_text(user.name)
+    #expect(page).to have_text("10")
     
  end
     

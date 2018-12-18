@@ -1,0 +1,18 @@
+<%= form_for([propuesta, evaluation]) do |f| %>
+  <p>
+    <%= f.label :formacion_titulo, "Formación (Título de Grado)" %><br/>
+    <%= f.text_field :formacion_titulo, class: 'form-control', autofocus: true %>
+  </p>
+  <p>
+    <%= f.label :estudios, "Experiencia de la entidad de capacitación de cara a proveer servicios educativos basados en nuevas tecnologías" %><br/>
+    <%= f.text_field :estudios, class: 'form-control', autofocus: true %>
+  </p>
+    <p>
+    <%= f.label :formacion_equipo, "Estudios complementarios" %><br/>
+    <%= f.text_field :formacion_equipo, class: 'form-control', autofocus: true %>
+  </p>
+  <p>
+    <%= f.submit "Guardar Evaluación", class: 'btn btn-primary' %> 
+    <%= link_to "Cancelar", call_path(propuesta.call), class: 'btn btn-primary' %>
+  </p>
+<% end %>
