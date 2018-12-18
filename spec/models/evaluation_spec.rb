@@ -80,7 +80,7 @@ RSpec.describe Evaluation, type: :model do
     evaluation1.save
     expect(call.evaluations.size).to eq(1)
     
-    expect(call.evaluations.first.evaluatable.exp_pob).to eq(6)
+    expect(call.evaluations.first.evaluatable.formacion_equipo).to eq(6)
     expect(call.proposals.first.proveedor).to eq("Kolping")
     
 #    expect {
