@@ -5,6 +5,7 @@ class CreateAdminService
         user.password_confirmation = Rails.application.secrets.admin_password
         user.name = "Jimena Curbelo"
         user.institucion = "STPC"
+        user.email = "example@tranformauruguay.gub.uy"
       end
   end
 end

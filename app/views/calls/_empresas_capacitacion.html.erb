@@ -6,16 +6,18 @@
     <th>Formación</th>
     <th>Estudios</th>
     <th>Equipo</th>
+    <th>Fecha</th>
   </tr>
   <tbody>
     <% call.evaluations.each do |evaluation| %>
       <tr>
-        <td><%= evaluation.proposal.proveedor %>                 </td>
-        <td><%= evaluation.user.name if evaluation.user %>       </td>
-        <td><%= evaluation.user.institucion if evaluation.user %></td>
-        <td><%= evaluation.evaluatable.formacion_titulo   %>            </td>
-        <td><%= evaluation.evaluatable.estudios  %>          </td>
-        <td><%= evaluation.evaluatable.formacion_equipo  %>          </td>
+        <td><%= evaluation.proposal.proveedor %>                  </td>
+        <td><%= evaluation.user.name if evaluation.user %>        </td>
+        <td><%= evaluation.user.institucion if evaluation.user %> </td>
+        <td><%= evaluation.evaluatable.formacion_titulo   %>      </td>
+        <td><%= evaluation.evaluatable.estudios  %>               </td>
+        <td><%= evaluation.evaluatable.formacion_equipo  %>       </td>
+        <td><%= evaluation.evaluatable.created_at.to_date  %>     </td>
       </tr>
     <% end %>
 </tbody>
