@@ -1,15 +1,27 @@
 <%= form_for([propuesta, evaluation]) do |f| %>
   <p>
+    <%= f.label :formacion, "Formación y experiencia del equipo docente asignado a las actividades" %><br/>
+    <%= f.select :formacion, ((1..10).map {|i| [i,i] })  %>
+  </p>
+  <p>
     <%= f.label :propuesta, "Adecuación de la propuesta metodológica" %><br/>
-    <%= f.text_field :propuesta, class: 'form-control', autofocus: true %>
+    <%= f.select :propuesta, ((1..10).map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :antecedentes, "Antecedentes y experiencia de la institución en actividades formativas para emprendedores y Mipymes" %><br/>
-    <%= f.text_field :antecedentes, class: 'form-control', autofocus: true %>
+    <%= f.select :antecedentes, ((1..10).map {|i| [i,i] })  %>
   </p>
     <p>
     <%= f.label :conocimiento, "Conocimiento de la población objetivo" %><br/>
-    <%= f.text_field :conocimiento, class: 'form-control', autofocus: true %>
+    <%= f.select :conocimiento, ((1..10).map {|i| [i,i] })  %>
+  </p>
+  <p>
+    <%= f.label :costo, "Costo Total" %><br/>
+    <%= f.text_field :costo, class: 'form-control', autofocus: true %>
+  </p>
+  <p>
+    <%= f.label :horas, "Horas asignadas" %><br/>
+    <%= f.text_field :horas, class: 'form-control', autofocus: true %>
   </p>
   <p>
     <%= f.submit "Guardar Evaluación", class: 'btn btn-primary' %> 

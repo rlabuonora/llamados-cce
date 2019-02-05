@@ -6,6 +6,7 @@
     <th>Propuesta</th>
     <th>Antecedentes</th>
     <th>Conocimiento</th>
+    <th>Fecha</th>
   </tr>
   <tbody>
     <% call.evaluations.each do |evaluation| %>
@@ -16,6 +17,7 @@
         <td><%= evaluation.evaluatable.propuesta   %>            </td>
         <td><%= evaluation.evaluatable.antecedentes  %>          </td>
         <td><%= evaluation.evaluatable.conocimiento  %>          </td>
+        <td><%= evaluation.evaluatable.created_at.to_date  %>          </td>
       </tr>
     <% end %>
 </tbody>

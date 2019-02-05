@@ -20,17 +20,20 @@ feature 'Evaluate propuesta', :devise do
     
     expect(page).to have_text("Evaluar Propuesta")
     
-    fill_in "Adecuación de la propuesta metodológica", with: 10
-    fill_in "Antecedentes y experiencia de la institución en actividades formativas para emprendedores y Mipymes", with: 10
-    fill_in "Conocimiento de la población objetivo", with: 10
+    page.select "5", from: "Formación y experiencia del equipo docente asignado a las actividades"
+    page.select "4", from: "Adecuación de la propuesta metodológica"
+    page.select "6", from: "Antecedentes y experiencia de la institución en actividades formativas para emprendedores y Mipymes"
+    
+    page.select "6", from: "Conocimiento de la población objetivo"
+    fill_in "Costo Total", with: 100
+    fill_in "Horas",       with: 30
+    
     
     click_button "Guardar Evaluación"
     
     expect(current_path).to eq(call_path(c))
     expect(page).to have_text(p.proveedor)
     expect(page).to have_text(user.name)
-    expect(page).to have_text("10")
-    
     
  end
  
