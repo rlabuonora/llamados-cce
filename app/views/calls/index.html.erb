@@ -3,13 +3,15 @@
     <h3>Llamados</h3>
     <div class="column">
       <table class="table">
-        <tr>
+        <thead>
+          <tr>
           <th>Llamado</th>
           <th>Centro</th>
           <th>Publico</th>
           <th>Modalidad</th>
           <th>Propuestas</th>
-        </tr>
+          </tr>
+        </thead>
         <tbody>
           <% @calls.each do |call| %>
             <tr>
