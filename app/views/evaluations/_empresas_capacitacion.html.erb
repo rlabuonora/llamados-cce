@@ -1,61 +1,61 @@
 <%= form_for([propuesta, evaluation]) do |f| %>
   <p>
     <%= f.label :formacion_titulo, "Formación (Título de Grado)" %><br/>
-    <%= f.select :formacion_titulo, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :formacion_titulo, ([5, 10, 15].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :estudios, "Estudios complementarios" %><br/>
-    <%= f.select :estudios, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :estudios, ([5, 10, 15].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :formacion_equipo, "Formación del equipo docente" %><br/>
-    <%= f.select :formacion_equipo, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :formacion_equipo, ([5, 10, 15].map {|i| [i,i] })  %>
   </p>
    <p>
     <%= f.label :antecedentes_formacion, "Antecedentes y experiencia en formación de la entidad de capacitación" %><br/>
-    <%= f.select :antecedentes_formacion, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :antecedentes_formacion, ([5, 20, 30].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :antecedentes_territorio, "Antecedentes y experiencia en el territorio o en otros territorios" %><br/>
-    <%= f.select :antecedentes_territorio, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :antecedentes_territorio, ([5, 10, 15].map {|i| [i,i] })  %>
   </p>
   
   <p>
     <%= f.label :experiencia_tecno, "Experiencia de la entidad de capacitación de cara a proveer servicios educativos basados en nuevas tecnologías" %><br/>
-    <%= f.select :experiencia_tecno, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :experiencia_tecno, ([3, 5, 10].map {|i| [i,i] })  %>
   </p>
   
   <p>
     <%= f.label :desarrollo, "Desarrollo esperado de todos los contenidos" %><br/>
-    <%= f.select :desarrollo, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :desarrollo, ([5, 10, 20].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :pertinencia, "Pertinencia y objetivos descritos" %><br/>
-    <%= f.select :pertinencia, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :pertinencia, ([5, 10, 15].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :objetivo, "Construcción de objetivo con los participantes" %><br/>
-    <%= f.select :objetivo, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :objetivo, ([0, 3, 5].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :metodologia, "Metodología a implementar" %><br/>
-    <%= f.select :metodologia, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :metodologia, ([5, 10, 15].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :perfil, "Descripción del perfil de ingreso y egreso del participante" %><br/>
-    <%= f.select :perfil, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :perfil, ([0, 3, 5].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :innovacion, "Innovación en la implementación" %><br/>
-    <%= f.select :innovacion, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :innovacion, ([2, 5, 10].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :materiales, "¿Describe materiales didáctico, infraestructura requerida, equipos y complementos?" %><br/>
-    <%= f.select :materiales, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :materiales, ([2, 10, 15].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.label :actividades, "¿Describe actividades o estrategias para la evaluación de los contenidos transmitidos?" %><br/>
-    <%= f.select :actividades, ((1..10).map {|i| [i,i] })  %>
+    <%= f.select :actividades, ([2, 10, 15].map {|i| [i,i] })  %>
   </p>
   <p>
     <%= f.submit "Guardar Evaluación", class: 'btn btn-primary' %> 

@@ -53,18 +53,18 @@ feature 'Evaluate propuesta', :devise do
 
     expect(page).to have_text("Evaluar Propuesta")
     page.select "10", from: "Formación (Título de Grado)"
-    page.select "10", from: "Estudios complementarios"
+    page.select "5", from: "Estudios complementarios"
     page.select "10", from: "Formación del equipo docente"
-    page.select "10", from: "Antecedentes y experiencia en formación de la entidad de capacitación"
-    page.select "10", from: "Antecedentes y experiencia en el territorio o en otros territorios"
-    page.select "10", from: "Experiencia de la entidad de capacitación de cara a proveer servicios educativos basados en nuevas tecnologías"
+    page.select "20", from: "Antecedentes y experiencia en formación de la entidad de capacitación"
+    page.select "15", from: "Antecedentes y experiencia en el territorio o en otros territorios"
+    page.select "3", from: "Experiencia de la entidad de capacitación de cara a proveer servicios educativos basados en nuevas tecnologías"
 
-    page.select "10", from: "Desarrollo esperado de todos los contenidos"
+    page.select "5", from: "Desarrollo esperado de todos los contenidos"
     page.select "10", from: "Pertinencia y objetivos descritos"
-    page.select "10", from: "Construcción de objetivo con los participantes"
+    page.select "0", from: "Construcción de objetivo con los participantes"
     page.select "10", from: "Metodología a implementar"
-    page.select "10", from: "Descripción del perfil de ingreso y egreso del participante"
-    page.select "10", from: "Innovación en la implementación"
+    page.select "3", from: "Descripción del perfil de ingreso y egreso del participante"
+    page.select "5", from: "Innovación en la implementación"
     page.select "10", from: "¿Describe materiales didáctico, infraestructura requerida, equipos y complementos?"
     page.select "10", from: "¿Describe actividades o estrategias para la evaluación de los contenidos transmitidos?"
     
