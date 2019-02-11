@@ -14,7 +14,6 @@ class CallsController < ApplicationController
     
     def update
       @call = Call.find(params[:id])
-      call_params = params[:call].permit(:nombre, :centro, :publico, :modalidad)
       if @call.update(call_params)
         redirect_to @call, notice: "Llamado Actualizado"
       else
@@ -27,7 +26,6 @@ class CallsController < ApplicationController
     end
     
     def create
-      call_params = params.require(:call).permit(:nombre, :centro, :publico, :modalidad)
       @call = Call.new(call_params)
       if @call.save
         redirect_to @call, notice: "Llamado Creado"
@@ -35,6 +33,12 @@ class CallsController < ApplicationController
         render :new
       end
     end
+    
+  private
+  
+  def call_params
+    params.require(:call).permit(:nombre, :centro, :publico, :modalidad)
+  end
     
     
 end
