@@ -18,10 +18,14 @@ feature 'Editar calls', :devise do
     
     fill_in "Nombre", with: "Validación de Ideas"
     
+    select "Asistencia Técnica", :from => "Modalidad"
+    
     click_button "Actualizar Llamado"
     
     expect(current_path).to eq(call_path(call))
     expect(page).to have_xpath("//input[@value='Validación de Ideas']")
+    expect(page).to have_xpath("//option[@value='Empresas']")
+    expect(page).to have_xpath("//option[@value='Asistencia Técnica'][@selected = 'selected']")
     expect(page).to have_text('Llamado Actualizado')
   end
   

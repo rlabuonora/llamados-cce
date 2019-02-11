@@ -9,13 +9,23 @@ RSpec.describe Call, type: :model do
  end
   
   it "is invalid with no publico" do
-     skip "not implemented"
+     #skip "not implemented"
      call = FactoryBot.build(:call, publico: "")
      call.valid?
      expect(call.errors[:publico].any?).to eq(true)
      call.valid?
      call.publico = "Gente"
      expect(call.errors[:publico].any?).to eq(true)
+  end
+  
+  it "is invalid with no modalidad" do
+     #skip "not implemented"
+     call = FactoryBot.build(:call, modalidad: "")
+     call.valid?
+     expect(call.errors[:modalidad].any?).to eq(true)
+     call.valid?
+     call.publico = "Gente"
+     expect(call.errors[:modalidad].any?).to eq(true)
   end
   
   it "is invalid with no nombre" do

@@ -10,8 +10,8 @@ class Call < ApplicationRecord
 
 
   validates :nombre, presence: true
-  #validates :modalidad, presence: true
-  #validates :publico, presence: true
+  validates :modalidad, presence: true
+  validates :publico, presence: true
   validates :centro, inclusion: {
    in: CENTROS,
     message: "Tiene que ser un centro válido"
