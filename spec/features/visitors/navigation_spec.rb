@@ -1,3 +1,5 @@
+# coding: utf-8
+require 'rails_helper'
 # Feature: Navigation links
 #   As a visitor
 #   I want to see navigation links

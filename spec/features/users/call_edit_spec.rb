@@ -1,3 +1,6 @@
+# coding: utf-8
+require 'rails_helper'
+
 include Warden::Test::Helpers
 
 feature 'Editar calls', :devise do

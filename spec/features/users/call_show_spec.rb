@@ -1,3 +1,4 @@
+require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Show call', :devise do

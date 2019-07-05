@@ -1,3 +1,5 @@
+# coding: utf-8
+require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Evaluate propuesta', :devise do

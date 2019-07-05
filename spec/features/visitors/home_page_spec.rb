@@ -1,4 +1,7 @@
-# Feature: Home page
+# coding: utf-8
+require 'rails_helper'
+
+#Feature: Home page
 #   As a visitor
 #   I want to visit a home page
 #   So I can learn more about the website
