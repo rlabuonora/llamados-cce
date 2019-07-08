@@ -39,7 +39,7 @@ feature 'User edit', :devise do
     other = FactoryBot.create(:user, email: 'other@example.com')
     login_as(me, :scope => :user)
     visit edit_user_registration_path(other)
-    expect(page).to have_content 'Edit User'
+    expect(page).to have_content 'Editar User'
     expect(page).to have_field('Email', with: me.email)
   end
 
