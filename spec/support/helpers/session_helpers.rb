@@ -7,14 +7,14 @@ module Features
       select 'STPC', from: 'Institucion'
       fill_in 'Password', with: password
       fill_in 'Confirmar Password', :with => confirmation
-      click_button 'Sign up'
+      click_button 'Registrarse'
     end
 
     def signin(email, password)
       visit new_user_session_path
       fill_in 'Email', with: email
       fill_in 'Password', with: password
-      click_button 'Sign in'
+      click_button 'Ingresar'
     end
   end
 end
