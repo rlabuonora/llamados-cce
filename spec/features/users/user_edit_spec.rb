@@ -25,7 +25,7 @@ feature 'User edit', :devise do
     select 'DINAPYME', from: 'Institucion'
     fill_in 'Email', :with => 'newemail@example.com'
     fill_in 'Password Actual', :with => user.password
-    click_button 'Update'
+    click_button 'Actualizar'
     txts = [I18n.t( 'devise.registrations.updated'), I18n.t( 'devise.registrations.update_needs_confirmation')]
     expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
   end

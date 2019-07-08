@@ -18,7 +18,7 @@
       <%= f.select :institucion, User::INSTITUCIONES, class: 'form-control' %>
     </div>
     <fieldset>
-      <p>Leave these fields blank if you don't want to change your password.</p>
+      <p>Dejar estos campos en blanco si no queres cambiar tu password.</p>
       <div class="form-group">
         <%= f.label :password %>
         <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
@@ -29,13 +29,13 @@
       </div>
     </fieldset>
     <fieldset>
-      <p>You must enter your current password to make changes.</p>
+      <p>Entrar tu password para hacer cambios.</p>
       <div class="form-group">
         <%= f.label :current_password, "Password Actual" %>
         <%= f.password_field :current_password, class: 'form-control' %>
       </div>
     </fieldset>
-    <%= f.submit 'Update', :class => 'button right' %>
+    <%= f.submit 'Actualizar', :class => 'button right' %>
   <% end %>
 </div>
 <div class="authform">
