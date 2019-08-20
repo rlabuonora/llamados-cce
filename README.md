@@ -12,3 +12,9 @@ Una app para administrar llamados de consultores
 3. run migrations
 4. seed
 4. open app
+
+
+## Cuentas
+
+dev: example@transformauruguay.gub.uy
+     changeme

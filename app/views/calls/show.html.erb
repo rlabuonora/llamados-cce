@@ -1,31 +1,32 @@
 <div class="container">
   <div class="row">
-
-  <h3>Llamado</h3>
-  <%= form_for(@call) do |f| %>
-  <p>
-    <%= f.label :nombre %><br/>
-    <%= f.text_field :nombre, class: 'form-control', autofocus: true, readonly: true %>
-  </p>
-  <p>
-    <%= f.label :centro %><br/>
-    <%= f.select :centro, Call::CENTROS, {}, class: 'form-control', readonly: true %>
-  </p>
-  <p>
-    <%= f.label :modalidad %><br/>
-    <%= f.select :modalidad, Call::MODALIDADES, {}, class: 'form-control', readonly: true %>
-  </p>
-  <p>
-    <%= f.label :publico %><br/>
-    <%= f.select :publico, Call::PUBLICOS, {}, class: 'form-control', readonly: true %>
-  </p>
-  <p>
-  <% end %>
-  <div>
-  <div class="row">
-    <%= link_to "Editar Llamado", edit_call_path(@call), class: 'btn btn-primary' %> 
-    <%= link_to "Agregar Propuesta", new_call_proposal_path(@call), class: 'btn btn-primary' %> 
-    <%= link_to "Ver Propuestas", call_proposals_path(@call), class: 'btn btn-primary' %> 
+  <div class="col-sm-4">
+    <h3>Llamado</h3>
+      <%= form_for(@call) do |f| %>
+      <p>
+        <%= f.label :nombre %><br/>
+        <%= f.text_field :nombre, class: 'form-control', autofocus: true, readonly: true %>
+      </p>
+      <p>
+        <%= f.label :centro %><br/>
+        <%= f.select :centro, Call::CENTROS, {}, class: 'form-control', readonly: true %>
+      </p>
+      <p>
+        <%= f.label :modalidad %><br/>
+        <%= f.select :modalidad, Call::MODALIDADES, {}, class: 'form-control', readonly: true %>
+      </p>
+      <p>
+        <%= f.label :publico %><br/>
+        <%= f.select :publico, Call::PUBLICOS, {}, class: 'form-control', readonly: true %>
+      </p>
+      <p>
+        <% end %>
+  </div>
+  <div class="col-sm-4 botones">
+    <%= link_to "Editar Llamado", edit_call_path(@call), class: 'btn btn-primary' %> </br>
+    <%= link_to "Agregar Propuesta", new_call_proposal_path(@call), class: 'btn btn-primary' %> </br>
+    <%= link_to "Ver Propuestas", call_proposals_path(@call), class: 'btn btn-primary' %> </br>
+  </div>
   </div>
   <div class="row">
     <h3>Evaluaciones</h3>
@@ -33,9 +34,25 @@
     <%= render :partial => 'evaluations', :locals => {:call => @call } %>
     </div>
   </div>
-  </div>
-</div>
-
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
