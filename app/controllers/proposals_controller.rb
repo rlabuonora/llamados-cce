@@ -14,7 +14,7 @@ class ProposalsController < ApplicationController
     
     def create
       @call = Call.find(params[:call_id])
-      prop_params = params.require(:proposal).permit(:proveedor)
+      prop_params = params.require(:proposal).permit(:proveedor, :adjunto)
       @propuesta = @call.proposals.new(prop_params)
       if @propuesta.save
           redirect_to call_proposals_path(@call),

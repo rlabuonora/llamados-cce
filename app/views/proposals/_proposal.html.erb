@@ -1,3 +1,7 @@
-<td><%= proposal.proveedor %></td>
+<% if proposal.adjunto? %>
+  <td><%= link_to(proposal.proveedor, proposal.adjunto.url) %></td>
+<% else %>
+  <td><%= proposal.proveedor %></td>
+<% end %>
 <td><%= link_to("Evaluar", new_proposal_evaluation_path(proposal), class: 'btn btn-primary') %></td>
 <td><%= link_to 'Eliminar', call_proposal_path(@call, proposal), method: :delete, class: 'btn btn-primary' %></td>

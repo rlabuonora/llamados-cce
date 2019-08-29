@@ -4,7 +4,7 @@
 <section id="errors">
   <header>
     <h2>
-      <%= @propuesta.class.name.humanize.downcase %> no se pudo salvar. 
+      <%= @propuesta.class.name.humanize.downcase %> no se pudo salvar.
     </h2>
     <h3>
       Corrija <%= pluralize(@propuesta.errors.count, "error") %>:
@@ -17,15 +17,17 @@
   </ul>
 </section>
 <% end %>
-<%= form_for([@call, @propuesta]) do |f| %>
+<%= form_for([@call, @propuesta], html: {multipart: true}) do |f| %>
   <p>
     <%= f.label :proveedor %><br/>
     <%= f.text_field :proveedor, class: 'form-control', autofocus: true %>
   </p>
   <p>
-    <%= f.submit "Salvar Propuesta", class: 'btn btn-primary' %> 
+    <%= f.file_field :adjunto %>
+  </p>
+  <p>
+    <%= f.submit "Salvar Propuesta", class: 'btn btn-primary' %>
     <%= link_to "Cancelar", call_path(@call), class: 'btn btn-primary' %>
   </p>
 <% end %>
 </div>
-

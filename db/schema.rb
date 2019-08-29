@@ -10,24 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_183635) do
+ActiveRecord::Schema.define(version: 2019_08_29_180123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "asistencia_empresas_responses", force: :cascade do |t|
-    t.decimal "exp_pob"
-    t.decimal "problematica"
-    t.decimal "formacion"
-    t.decimal "experiencia"
-    t.decimal "claridad"
-    t.decimal "viabilidad"
-    t.decimal "formativo"
-    t.bigint "evaluation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["evaluation_id"], name: "index_asistencia_empresas_responses_on_evaluation_id"
-  end
 
   create_table "calls", force: :cascade do |t|
     t.string "nombre"
@@ -84,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_02_05_183635) do
     t.bigint "call_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "adjunto"
     t.index ["call_id"], name: "index_proposals_on_call_id"
   end
 
@@ -101,7 +88,6 @@ ActiveRecord::Schema.define(version: 2019_02_05_183635) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "asistencia_empresas_responses", "evaluations"
   add_foreign_key "evaluations", "proposals"
   add_foreign_key "evaluations", "users"
   add_foreign_key "proposals", "calls"
